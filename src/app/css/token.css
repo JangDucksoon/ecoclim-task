@@ -1,0 +1,209 @@
+@charset "utf-8";
+/* 핵심 디자인 토큰 */
+
+
+:root{
+
+--font-size-base:62.5%;
+
+
+/* primitive color */
+--color-primary-60:#0B50D0FF;
+--color-primary-50:#256EF4FF;
+--color-primary-10:#D8E5FDFF;
+--color-primary-05:#ECF2FEFF; /*클릭가능한(조작가능한) 요소의 배경색 (선택되었을때 혹은 클릭가능한 버튼일때 hover 효과) */
+--color-primary-00:#ffffffff;
+
+--color-secondary-60:#063A74FF; /*페이징 active 컬러*/
+--color-secondary-40:#6B96C7ff; /*스크롤*/
+--color-secondary-10:#D6E0EBFF; /*큰 요소 active 컬러 모달 헤더*/
+--color-secondary-05:#EEF2F7FF; /*th나 일반 배경색 (혹은 hover 효과)*/
+--color-secondary-00:#ffffffff;
+
+--color-danger-50:#DE3412FF; /*경고용 컬러*/
+--color-danger-20:#F7AFA1;
+--color-danger-10:#FCDFD9ff;
+
+--color-warning-50:#9E6A00FF; /*경고용 컬러*/
+
+--color-information-50:#096AB3FF; /*정보용 텍스트컬러*/
+--color-information-20:#9ED2FAff; /*스크롤백그라운드컬러*/
+
+--color-gray-90:#131416FF; /*타이틀용*/
+--color-gray-80:#1E2124FF; /*스트기본컬러*/
+--color-gray-70:#464C53FF; /*스트서브컬러*/
+--color-gray-60:#58616Aff; /*코디언 active 컬러   취소 혹은 일반버튼 보더 컬러 (헤더에서도 씀)*/
+
+--color-gray-40:#8a949eff; /*풋 placeholder 컬러*/
+--color-gray-30:#b1b8beff; /*더 그레이 컬러*/
+--color-gray-20:#cdd1d5ff; /*반 보더 컬러*/
+--color-gray-15:#DAE0E7ff;  /* 아이콘 백그라운드 */
+--color-gray-10:#E6E8EAff; /*반 배경색*/
+--color-gray-05:#F4F5F6FF; /*일반 배경색?*/
+--color-gray-00:#ffffffff;
+
+--color-map-90:#323E5Bff; /* 지도 헤더 */
+
+
+/*primitive number */
+--number-00:0rem;
+--number-01:0.1rem;
+--number-02:0.2rem;
+--number-03:0.4rem;
+--number-04:0.8rem;
+--number-05:1rem;
+--number-06:1.2rem;
+--number-07:1.6rem;
+--number-08:2rem;
+--number-09:2.4rem;
+--number-10:3.2rem;
+--number-11:4.0rem;
+--number-12:4.8rem;
+--number-13:6.4rem;
+--number-14:9.0rem;
+--number-15:11.0rem;
+
+
+
+
+/* common semantic */
+
+/* font-size 추후에 미디어쿼리 작성때 pc, mobile 구분 예정*/
+/* --font-size-heading-xlarge: 40px; */
+/* --font-size-heading-large: 32px; */
+--font-size-heading-medium: 2.4rem;
+--font-size-heading-small: 1.9rem;
+--font-size-heading-xsmall: 1.7rem;
+--font-size-heading-xxsmall: 1.5rem;
+
+--font-size-body-large: 1.9rem;
+--font-size-body-medium: 1.7rem;
+--font-size-body-small: 1.5rem;
+--font-size-body-xsmall: 1.3rem;
+--font-size-label-large: 1.9rem;
+--font-size-label-medium: 1.7rem;
+--font-size-label-small: 1.5rem;
+--font-size-label-xsmall: 1.3rem;
+--font-size-label-xxsmall: 1rem;
+
+
+/* 지도화면 폰트 작성하면서 차근차근 업데이트*/
+--map-font-size-heading-medium: 1.7rem;
+--map-font-size-heading-small: 1.4rem;
+
+--map-font-size-navigation-title-large: 1.9rem;
+--map-font-size-navigation-title-medium: 1.7rem;
+/* --map-font-size-navigation-title-small: 1.9rem; */
+--map-font-size-body-large: 1.7rem;
+--map-font-size-body-medium: 1.4rem;
+--map-font-size-body-small: 1.2rem;
+
+--map-font-size-label-medium: 1.4rem;
+--map-font-size-label-small: 1.3rem;
+
+--map-table-font-size-medium: 1.4rem;
+--map-table-font-size-small: 1.2rem;
+
+
+/* color */
+--color-text-bolder:var(--color-gray-90);
+--color-text-basic:var(--color-gray-80);
+--color-text-primary:var(--color-primary-60);
+--color-text-subtle:var(--color-gray-70);
+--color-text-disabled:var(--color-gray-40);
+--color-text-subtle-inverse:var(--color-gray-30);
+--color-text-inverse-static:var(--color-gray-00);
+--color-text-information:var(--color-information-50);
+--color-text-warning:var(--color-warning-50);
+--color-text-primary-td:var(--color-text-primary);
+--color-text-table-th:var(--color-text-basic);
+--color-text-table-td:var(--color-text-basic);
+
+
+/* background-color */
+--color-background-primary:var(--color-primary-50);
+--color-background-primary-hover:var(--color-primary-60);
+--color-background-primary-subtler:var(--color-primary-05);
+--color-background-primary-subtler-hover:var(--color-primary-10);
+--color-background-secondary:var(--color-secondary-60);
+--color-background-secondary-subtle: var(--color-secondary-10);
+--color-background-secondary-subtler: var(--color-secondary-05);
+--color-background-secondary-subtler-hover: var(--color-secondary-05);
+--color-background-tertiary:var(--color-primary-00);
+--color-background-tertiary-hover:var(--color-gray-05);
+--color-background-white-subtle: var(--color-gray-00);
+--color-background-gray: var(--color-gray-20);
+--color-background-gray-hover: var(--color-gray-30);
+--color-background-gray-subtler: var(--color-gray-05);
+--color-background-danger: var(--color-danger-50);
+--color-background-danger-hover: var(--color-danger-20);
+--color-background-danger-subtle: var(--color-danger-10);
+--color-background-icon-color:var(--color-gray-15);
+
+/* border-color 레이블류 별도표기*/
+--color-border-primary:var(--color-primary-50);
+--color-border-gray:var(--color-gray-60);
+--color-border-gray-subtle:var(--color-gray-20);
+--color-border-unset:transparent;
+
+
+/* border-radius */
+--border-radius-xsmall:0.3rem;
+--border-radius-small:0.5rem;
+--border-radius-maximum:50rem;
+
+
+/* gap */
+--gap-00: var(--number-02);
+--gap-01: var(--number-03);
+--gap-02: var(--number-04);
+--gap-03: var(--number-05);
+
+
+/* padding */
+--padding-01: var(--number-03);
+--padding-02: var(--number-04);
+--padding-03: var(--number-05);
+--padding-04: var(--number-06);
+--padding-05: var(--number-07);
+--padding-06: var(--number-08);
+--padding-07: var(--number-09);
+--padding-08: var(--number-10);
+--padding-09: var(--number-11);
+--padding-10: var(--number-12);
+--padding-11: var(--number-13);
+
+
+/* font-weight */
+--font-weight-regular:400;
+/* --font-weight-medium:500; */
+--font-weight-bold:600;
+
+--font-weight-table-th:var(--font-weight-bold);
+--font-weight-table-td:var(--font-weight-regular);
+
+
+/* shdow */
+--shadow-normal-gray: 0px 4px 8px rgba(0, 0, 0, 0.08);
+
+
+/* min-width */
+--min-width-01: 9rem;
+--min-width-02: 11rem;
+--min-width-03: 12rem;
+--min-width-04: 20rem;
+
+--scroll-color-drag: var(--color-secondary-40);
+--scroll-color-bar: var(--color-information-20);
+
+--logo-margin: 8rem;
+
+
+
+
+
+
+
+
+}
+

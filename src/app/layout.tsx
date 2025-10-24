@@ -1,0 +1,26 @@
+import type { Metadata } from 'next';
+import './css/globals.css';
+import React from 'react';
+import Header from '@/components/template/header/header';
+
+export const metadata: Metadata = {
+    title: {
+        template: '%s | 생태계 기후대응 통합정보 관리시스템',
+        default: '생태계 기후대응 통합정보 관리시스템'
+    },
+    description: '생태계 기후대응 통합정보 관리시스템입니다.'
+};
+
+export default async function RootLayout({ children, modal }: Readonly<{ children: React.ReactNode; modal: React.ReactNode }>) {
+    return (
+        <html lang="ko" suppressHydrationWarning>
+            <head></head>
+            <body>
+                <header className="z-2 border-b-(--color-border-gray-subtle) bg-(--color-background-white-subtle) py-(--padding-04) sticky top-0 border-b px-0">
+                    <Header />
+                </header>
+                {children}
+            </body>
+        </html>
+    );
+}

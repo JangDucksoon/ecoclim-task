@@ -1,0 +1,11 @@
+node_modules
+/build
+/.next/
+/package
+.env.development.local
+.env.*
+!.env.example
+*.md
+
+# Ignore files for PNPM, NPM and YARN
+pnpm-lock.yaml
