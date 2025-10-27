@@ -1,3 +1,25 @@
+import { BASE_PATH } from './env';
+
+export function getUrlWithBasePath(url: string) {
+    if (url.startsWith('http')) {
+        return url;
+    } else if (url.startsWith(BASE_PATH)) {
+        return url;
+    } else {
+        return `${BASE_PATH}${url}`;
+    }
+}
+
+export function getUrlWithoutBasePath(url: string) {
+    if (url.startsWith('http')) {
+        return url;
+    } else if (url.startsWith(BASE_PATH)) {
+        return url.substring(BASE_PATH.length);
+    } else {
+        return url;
+    }
+}
+
 export function getTree(array: any[], key: string, parentKey: string) {
     if (!Array.isArray(array) || array.length === 0) {
         return [];

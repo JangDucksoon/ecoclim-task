@@ -27,7 +27,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     <DropdownMenuPrimitive.SubTrigger
         ref={ref}
         className={cn(
-            'focus:bg-accent data-[state=open]:bg-accent [font-size: var(--font-size-body-small)] flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 outline-none [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+            'focus:bg-accent data-[state=open]:bg-accent text-(length:--font-size-body-small) flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 outline-none [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
             inset && 'pl-8',
             className
         )}
@@ -82,7 +82,7 @@ const DropdownMenuItem = React.forwardRef<
     <DropdownMenuPrimitive.Item
         ref={ref}
         className={cn(
-            'hover:bg-(--color-background-primary-subtler) focus:bg-(--color-background-primary-subtler) data-disabled:pointer-events-none data-disabled:opacity-50 py-(--padding-04) px-(--padding-05) [font-size: var(--font-size-body-small)] relative flex cursor-default select-none items-center gap-2 rounded-sm outline-none transition-colors [&>svg]:size-4 [&>svg]:shrink-0',
+            'hover:bg-(--color-background-primary-subtler) focus:bg-(--color-background-primary-subtler) data-disabled:pointer-events-none data-disabled:opacity-50 py-(--padding-04) px-(--padding-05) text-(length:--font-size-body-small) relative flex cursor-default select-none items-center gap-2 rounded-sm outline-none transition-colors [&>svg]:size-4 [&>svg]:shrink-0',
             inset,
             className
         )}
@@ -98,7 +98,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     <DropdownMenuPrimitive.CheckboxItem
         ref={ref}
         className={cn(
-            'focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [font-size: var(--font-size-body-small)] relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 outline-none transition-colors',
+            'focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 text-(length:--font-size-body-small) relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 outline-none transition-colors',
             className
         )}
         checked={checked}
@@ -121,7 +121,7 @@ const DropdownMenuRadioItem = React.forwardRef<
     <DropdownMenuPrimitive.RadioItem
         ref={ref}
         className={cn(
-            'focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [font-size: var(--font-size-body-small)] relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 outline-none transition-colors',
+            'focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 text-(length:--font-size-body-small) relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 outline-none transition-colors',
             className
         )}
         {...props}
@@ -144,7 +144,7 @@ const DropdownMenuLabel = React.forwardRef<
 >(({ className, inset, ...props }, ref) => (
     <DropdownMenuPrimitive.Label
         ref={ref}
-        className={cn('px-2 py-1.5 font-semibold [font-size:var(--font-size-body-small)]', inset && 'pl-8', className)}
+        className={cn('text-(length:--font-size-body-small) px-2 py-1.5 font-semibold', inset && 'pl-8', className)}
         {...props}
     />
 ));
@@ -167,7 +167,7 @@ const DropdownMenuSeparatorDashed = React.forwardRef<
 DropdownMenuSeparatorDashed.displayName = 'DropdownMenuSeparatorDashed';
 
 const DropdownMenuShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
-    return <span className={cn('[font-size: var(--font-size-body-small)] ml-auto tracking-widest opacity-60', className)} {...props} />;
+    return <span className={cn('text-(length:--font-size-body-small) ml-auto tracking-widest opacity-60', className)} {...props} />;
 };
 DropdownMenuShortcut.displayName = 'DropdownMenuShortcut';
 

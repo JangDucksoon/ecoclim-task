@@ -13,16 +13,16 @@
     font-family: 'Pretendard';
     font-style: normal;
     src:
-        url(/fonts/ttf/Pretendard-Regular.ttf) format('truetype'),
-        url(/fonts/woff/Pretendard-Regular.woff) format('woff');
+        url(/mng/fonts/ttf/Pretendard-Regular.ttf) format('truetype'),
+        url(/mng/fonts/woff/Pretendard-Regular.woff) format('woff');
     font-weight: 400;
 }
 @font-face {
     font-family: 'Pretendard';
     font-style: normal;
     src:
-        url(/fonts/ttf/Pretendard-Bold.ttf) format('truetype'),
-        url(/fonts/ttf/Pretendard-Bold.ttf) format('woff');
+        url(/mng/fonts/ttf/Pretendard-Bold.ttf) format('truetype'),
+        url(/mng/fonts/ttf/Pretendard-Bold.ttf) format('woff');
     font-weight: 600;
 }
 

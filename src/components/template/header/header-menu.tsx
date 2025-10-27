@@ -10,11 +10,11 @@ import {
 } from '@/components/ui/navigation-menu';
 import { TASK_ECOCLIM_MAIN } from '@/lib/env';
 import { headerMenuType } from '@/type/menuType';
-import { getTree } from '@/lib/util';
+import { getTree, getUrlWithoutBasePath } from '@/lib/util';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-export function HeaderMenu() {
+export default function HeaderMenu() {
     const [openMenu, setOpenMenu] = useState<string>('');
     const menuTree = getTree(static_menu, 'menuNo', 'upperMenuId');
 
@@ -25,12 +25,7 @@ export function HeaderMenu() {
                     <NavigationMenuItem key={m.menuNm}>
                         <NavigationMenuTrigger className="h-[60px] cursor-pointer text-[1.9rem] font-bold">{m.menuNm}</NavigationMenuTrigger>
                         <NavigationMenuContent>
-                            <div
-                                className="z-99 fixed inset-0 top-[85px] bg-black/50 cursor-pointer"
-                                onClick={() => setOpenMenu('')}
-                                role="presentation"
-                                aria-hidden="true"
-                            />
+                            <div className="z-99 fixed inset-0 top-[85px] bg-black/50" onClick={() => setOpenMenu('')} role="presentation" aria-hidden="true" />
                             <div className="z-100 fixed left-0 right-0 top-[85px] block bg-white shadow-md">
                                 <ul className="gap-(--padding-07) p-(--padding-07) relative mx-auto grid min-h-0 w-[calc(1440px-var(--padding-07))] grid-cols-4 bg-white">
                                     {m.children.length > 0 &&
@@ -38,7 +33,7 @@ export function HeaderMenu() {
                                             <li className="rounded-(--border-radius-small) float-none" key={sub.menuNm}>
                                                 {sub.children && sub.children.length > 0 ? (
                                                     <>
-                                                        <button className="px-(--padding-07) rounded-(--border-radius-small) h-[4.6rem] w-full cursor-default items-center break-keep border border-[#cdd1d5ff] bg-[#ffffffff] text-left font-semibold [font-size:var(--font-size-label-medium)]">
+                                                        <button className="px-(--padding-07) rounded-(--border-radius-small) text-(length:--font-size-label-medium) h-[4.6rem] w-full cursor-default items-center break-keep border border-[#cdd1d5ff] bg-[#ffffffff] text-left font-semibold">
                                                             {sub.menuNm}
                                                         </button>
                                                         <div className="py-(--padding-05) static block bg-white">
@@ -52,7 +47,7 @@ export function HeaderMenu() {
                                                                             url={item.chkUrl}
                                                                             label={item.menuNm}
                                                                             menuTy={item.menuTy}
-                                                                            className="hover:bg-(--color-background-gray-subtler) rounded-(--border-radius-small) py-(--padding-02) px-(--padding-05) flex h-fit flex-row items-center gap-[0.8rem] whitespace-nowrap [font-size:var(--font-size-label-medium)] before:inline-block before:content-['·']"
+                                                                            className="hover:bg-(--color-background-gray-subtler) rounded-(--border-radius-small) py-(--padding-02) px-(--padding-05) text-(length:--font-size-label-medium) flex h-fit flex-row items-center gap-[0.8rem] whitespace-nowrap before:inline-block before:content-['·']"
                                                                         />
                                                                     </li>
                                                                 ))}
@@ -65,7 +60,7 @@ export function HeaderMenu() {
                                                         url={sub.chkUrl}
                                                         label={sub.menuNm}
                                                         menuTy={sub.menuTy}
-                                                        className="px-(--padding-07) rounded-(--border-radius-small) cursor-point hover:text-(--color-primary-60) flex h-[4.6rem] w-full items-center break-keep border border-[#cdd1d5ff] bg-[#ffffffff] text-left font-semibold [font-size:var(--font-size-label-medium)]"
+                                                        className="px-(--padding-07) rounded-(--border-radius-small) cursor-point hover:text-(--color-primary-60) text-(length:--font-size-label-medium) flex h-[4.6rem] w-full items-center break-keep border border-[#cdd1d5ff] bg-[#ffffffff] text-left font-semibold"
                                                     />
                                                 )}
                                             </li>
@@ -99,11 +94,11 @@ function DynamicLink({ url, label, menuTy, className = '' }: { url: string; labe
     };
 
     if (url.startsWith('/mng')) {
-        //포털관리 - 전환대상
+        //포털관리 - 전환대상 base path 제거 후, 바인딩
         return (
             /* 클릭시 메뉴 컨텐츠를 닫기 위해서 navlink로 감쌈 */
             <NavigationMenuLink asChild>
-                <Link href={url} className={className}>
+                <Link href={getUrlWithoutBasePath(url)} className={className}>
                     {label}
                 </Link>
             </NavigationMenuLink>

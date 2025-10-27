@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-    output: "standalone",
+    basePath: '/mng',
+    output: 'standalone',
+    allowedDevOrigins: ['task.ecoclimate.com']
 };
 
 export default nextConfig;

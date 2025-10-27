@@ -1,2 +1,3 @@
 export const TASK_ECOCLIM_MAIN = process.env.NEXT_PUBLIC_TASK_ECOCLIM_MAIN_URL;
 export const PUBLIC_ECOCLIM_MAIN = process.env.NEXT_PUBLIC_PUBLIC_ECOCLIM_MAIN_URL;
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';

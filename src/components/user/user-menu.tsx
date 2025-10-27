@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -14,9 +14,10 @@ import {
 } from '../ui/dropdown-menu';
 import { Info, Settings, LogOut } from 'lucide-react';
 import { PUBLIC_ECOCLIM_MAIN } from '@/lib/env';
+import { getUrlWithBasePath, getUrlWithoutBasePath } from '@/lib/util';
 
 export default function UserMenu() {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState<boolean>(false);
 
     function myMenuClickHandler() {
         setOpen(false);
@@ -28,7 +29,7 @@ export default function UserMenu() {
         <DropdownMenu modal={false} open={open} onOpenChange={setOpen}>
             <DropdownMenuTrigger asChild>
                 <button className="h-(--icon-size-small) w-(--icon-size-small) mr-(--padding-03) cursor-pointer bg-[#ffffff33]">
-                    <img src="/images/common/ico-user-info-box-common.svg" alt="사용자 메뉴" />
+                    <img src={getUrlWithBasePath('/images/common/ico-user-info-box-common.svg')} alt="사용자 메뉴" />
                 </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-[200px]" align="center" sideOffset={15}>
@@ -52,7 +53,7 @@ export default function UserMenu() {
                     </DropdownMenuItem>
                     {staticMyMenu.map((item) => (
                         <DropdownMenuItem key={item.menuNm} className="cursor-pointer" asChild>
-                            <Link href={item.menuUrl}>{item.menuNm}</Link>
+                            <Link href={getUrlWithoutBasePath(item.menuUrl)}>{item.menuNm}</Link>
                         </DropdownMenuItem>
                     ))}
                 </DropdownMenuGroup>

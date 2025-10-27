@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './css/globals.css';
 import React from 'react';
 import Header from '@/components/template/header/header';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 export const metadata: Metadata = {
     title: {
@@ -16,10 +17,12 @@ export default async function RootLayout({ children, modal }: Readonly<{ childre
         <html lang="ko" suppressHydrationWarning>
             <head></head>
             <body>
-                <header className="z-2 border-b-(--color-border-gray-subtle) bg-(--color-background-white-subtle) py-(--padding-04) sticky top-0 border-b px-0">
-                    <Header />
-                </header>
-                {children}
+                <TooltipProvider>
+                    <header className="z-2 border-b-(--color-border-gray-subtle) bg-(--color-background-white-subtle) py-(--padding-04) sticky top-0 border-b px-0">
+                        <Header />
+                    </header>
+                    {children}
+                </TooltipProvider>
             </body>
         </html>
     );
