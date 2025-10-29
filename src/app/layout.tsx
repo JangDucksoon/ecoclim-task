@@ -4,6 +4,7 @@ import React from 'react';
 import Header from '@/components/template/header/header';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import Footer from '@/components/template/footer/footer';
+import { AlertBox } from '@/components/common/message-box';
 
 export const metadata: Metadata = {
     title: {
@@ -18,6 +19,7 @@ export default async function RootLayout({ children, modal }: Readonly<{ childre
         <html lang="ko" suppressHydrationWarning>
             <head></head>
             <body>
+                <AlertBox />
                 <TooltipProvider>
                     <header className="border-b-(--color-border-gray-subtle) bg-(--color-background-white-subtle) py-(--padding-04) sticky top-0 z-20 border-b px-0">
                         <Header />
