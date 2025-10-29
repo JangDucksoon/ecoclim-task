@@ -8,5 +8,5 @@ export type headerMenuType = {
     menuOrdrArr: number[];
     menuTy: '01' | '02' | '03';
     useAt: 'Y' | 'N';
-    children?: any[];
+    children?: headerMenuType[];
 };

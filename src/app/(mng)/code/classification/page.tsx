@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-    return <div>테스트</div>;
+    return <div>분류코드 페이지</div>;
 }
