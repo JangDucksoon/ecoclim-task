@@ -19,7 +19,7 @@ export default async function RootLayout({ children, modal }: Readonly<{ childre
             <head></head>
             <body>
                 <TooltipProvider>
-                    <header className="z-2 border-b-(--color-border-gray-subtle) bg-(--color-background-white-subtle) py-(--padding-04) sticky top-0 border-b px-0">
+                    <header className="border-b-(--color-border-gray-subtle) bg-(--color-background-white-subtle) py-(--padding-04) sticky top-0 z-20 border-b px-0">
                         <Header />
                     </header>
                     {children}

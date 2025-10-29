@@ -12,10 +12,19 @@ import { TASK_ECOCLIM_MAIN } from '@/lib/env';
 import { headerMenuType } from '@/type/menuType';
 import { getUrlWithoutBasePath } from '@/lib/util';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function HeaderMenu({ menuTree }: { menuTree: headerMenuType[] }) {
     const [openMenu, setOpenMenu] = useState<string>('');
+    const pathname = usePathname();
+
+    useEffect(() => {
+        scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, [pathname]);
 
     return (
         <NavigationMenu value={openMenu} onValueChange={setOpenMenu}>

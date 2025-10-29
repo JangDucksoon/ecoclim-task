@@ -72,7 +72,7 @@ export default function EcoclimBreadCrumb({ menuTree }: { menuTree: headerMenuTy
                                             <span className="cursor-pointer hover:underline">{menu.menuNm}</span>
                                         </BreadcrumbLink>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="center">
+                                    <DropdownMenuContent align="center" className="z-10">
                                         {(menu?.children || []).map((item) => (
                                             <DropdownMenuItem key={`drop-${item.menuNo}`} className="cursor-pointer" onClick={() => setDropOpen(false)}>
                                                 <Link href={getUrlWithoutBasePath(item.chkUrl)}>{item.menuNm}</Link>

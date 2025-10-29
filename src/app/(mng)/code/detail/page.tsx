@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-    return <H1>상세코드 페이지</H1>;
+    return <H1>공통상세관리 목록</H1>;
 }
