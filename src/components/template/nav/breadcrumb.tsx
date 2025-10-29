@@ -10,7 +10,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 
 export default function EcoclimBreadCrumb({ menuTree }: { menuTree: headerMenuType[] }) {
     const pathname = usePathname();
-    const routeParams = useParams();
+    const routeParams = useParams(); //동적 세그먼트 반환 훅
     const pathnameWithBasePath = getUrlWithBasePath(pathname);
     const activeMenu = findActiveMenuList();
     const [dropOpen, setDropOpen] = useState<boolean>(false);
