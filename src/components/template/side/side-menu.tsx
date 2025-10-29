@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/style-utils';
-import { getUrlWithoutBasePath } from '@/lib/util';
+import { getUrlWithBasePath, getUrlWithoutBasePath } from '@/lib/util';
 import { headerMenuType } from '@/type/menuType';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 export default function SideMenu({ menuTree }: { menuTree: headerMenuType[] }) {
     const pathname = usePathname();
+    const pathnameWithBasePath = getUrlWithBasePath(pathname);
     const menuData = findFirstDepthMenu();
     const [selectedMenu, setSelectedMenu] = useState<number[]>([findActiveMenu()]);
 
@@ -27,12 +28,12 @@ export default function SideMenu({ menuTree }: { menuTree: headerMenuType[] }) {
     function findFirstDepthMenu() {
         for (const first of menuTree) {
             for (const second of first.children || []) {
-                if (second.chkUrl.endsWith(pathname)) {
+                if (pathnameWithBasePath.startsWith(second.chkUrl)) {
                     return first;
                 }
 
                 for (const third of second.children || []) {
-                    if (third.chkUrl.endsWith(pathname)) {
+                    if (pathnameWithBasePath.startsWith(third.chkUrl)) {
                         return first;
                     }
                 }
@@ -45,7 +46,7 @@ export default function SideMenu({ menuTree }: { menuTree: headerMenuType[] }) {
         let selectedSubMenu = 0;
         menuData?.children?.some((sub) => {
             sub.children?.some((item) => {
-                if (item.chkUrl.endsWith(pathname)) {
+                if (pathnameWithBasePath.startsWith(item.chkUrl)) {
                     selectedSubMenu = sub.menuNo;
                     return true;
                 } else {
@@ -86,7 +87,7 @@ export default function SideMenu({ menuTree }: { menuTree: headerMenuType[] }) {
                                     className={cn(
                                         'text-(length:--font-size-heading-xsmall) rounded-(--border-radius-small) bg-(--color-background-gray-subtler) mb-(--padding-02) py-(--padding-04) px-(--padding-05)',
                                         'hover:bg-(--color-background-primary-subtler-hover) flex w-full cursor-pointer flex-row items-center justify-between border-0 font-semibold',
-                                        sub.chkUrl.endsWith(pathname) &&
+                                        pathnameWithBasePath.startsWith(sub.chkUrl) &&
                                             `bg-(--color-background-secondary-subtle) hover:bg-(--color-background-secondary-subtle)`
                                     )}
                                     onClick={() => setSelectedMenu([])}
@@ -109,7 +110,7 @@ export default function SideMenu({ menuTree }: { menuTree: headerMenuType[] }) {
                                                 className={cn(
                                                     'before:mr-(--padding-02) before:inline-block before:content-["·"]',
                                                     'hover:bg-(--color-background-gray-subtler) rounded-(--border-radius-small) text-(--color-text-basic) py-(--padding-02) px-(--padding-05) text-(length:--font-size-label-medium) flex w-full cursor-pointer flex-row items-center justify-start border-0 bg-transparent',
-                                                    item.chkUrl.endsWith(pathname) &&
+                                                    pathnameWithBasePath.startsWith(item.chkUrl) &&
                                                         'text-(--color-text-primary) bg-(--color-background-primary-subtler) rounded-(--border-radius-small) hover:bg-(--color-background-primary-subtler)'
                                                 )}
                                             >
