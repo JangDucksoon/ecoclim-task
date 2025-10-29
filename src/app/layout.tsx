@@ -3,6 +3,7 @@ import './css/globals.css';
 import React from 'react';
 import Header from '@/components/template/header/header';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import Footer from '@/components/template/footer/footer';
 
 export const metadata: Metadata = {
     title: {
@@ -22,6 +23,9 @@ export default async function RootLayout({ children, modal }: Readonly<{ childre
                         <Header />
                     </header>
                     {children}
+                    <footer className="bg-(--footer-color-background) mt-32 block">
+                        <Footer />
+                    </footer>
                 </TooltipProvider>
             </body>
         </html>

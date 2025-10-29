@@ -1,8 +1,7 @@
+import { H1 } from '@/components/common/heading';
+import { TASK_ECOCLIM_MAIN } from '@/lib/env';
+
 export default function Main() {
-    return (
-        <div className="h-full w-full bg-[#F4F5F6FF]">
-            main view
-            <div className="mt-auto">123</div>
-        </div>
-    );
+    //window.location.href = TASK_ECOCLIM_MAIN || '/';
+    return <H1>메인</H1>;
 }

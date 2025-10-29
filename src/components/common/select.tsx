@@ -26,10 +26,10 @@ export function EcoclimSelect({
     ...props
 }: {
     data: selectDataType[];
-    emptyOption: boolean;
+    emptyOption?: boolean;
     emptyLabel?: string;
-    value: string;
-    setValue: (value: string) => void;
+    value?: string;
+    setValue?: (value: string) => void;
     className?: string;
 }) {
     return (
@@ -40,12 +40,12 @@ export function EcoclimSelect({
                 className
             )}
             value={value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) => setValue && setValue(e.target.value)}
             {...props}
         >
             {emptyOption && <option value="">{emptyLabel}</option>}
             {data.map((o) => (
-                <option key={`${o.name}-${o.value}`} value={o.value}>
+                <option key={`${o.name}-${o.value}`} value={o.value} selected={o.selected}>
                     {o.name}
                 </option>
             ))}

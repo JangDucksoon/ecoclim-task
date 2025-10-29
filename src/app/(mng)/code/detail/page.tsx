@@ -1,3 +1,4 @@
+import { H1 } from '@/components/common/heading';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-    return <div>상세코드 페이지</div>;
+    return <H1>상세코드 페이지</H1>;
 }
